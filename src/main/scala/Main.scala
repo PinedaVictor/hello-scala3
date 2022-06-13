@@ -4,11 +4,13 @@ import data.TestingData;
 
 @main def main = {
   println("In the main funciton");
-  val n = new User(27, "Vic", "P", HairColor.Brown, List("Ringo"));
-  println("User ID: " + n.getUserID());
-
   println("Calling function");
-  val data = TestingData.generateUserData(1);
-//   println(data);
+  val oneUser = TestingData.generateUser();
+  println(oneUser.getFullName());
+  val multipleUsers = TestingData.generateUserData(100);
+  println("Number of users: " + multipleUsers.length);
+
+  for i <- multipleUsers yield println(s"${i.getAge()} ${i.getFullName()} ${i.getUserID()}");
+
 
 }

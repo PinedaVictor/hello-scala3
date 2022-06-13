@@ -1,17 +1,45 @@
 package data;
 import scala.util.Random;
-
-object GenerateString {}
+import scala.StringBuilder
+import user.User
+import scala.collection.mutable
 
 object TestingData {
-  val random = new Random;
-// TODO: We need random age Int 1 - 120
-//          first name String,
-//          last name String,
-//          hairColor Ing 1- 5
-//          pets list[String]
+
+  val random = new Random();
+
   def generateUserData(numberOfUsers: Int) = {
     var i = 1;
-    for i <- 1 to numberOfUsers do println("Creating user: " + i)
+    for i <- i to numberOfUsers
+    yield new User(
+      random.nextInt(121) + 1,
+      generateString(5),
+      generateString(7),
+      user.HairColor.Brown,
+      List("Ringo", "Marty")
+    )
   }
+
+  def generateUser() = {
+    new User(
+      97,
+      "John",
+      "Conner",
+      user.HairColor.Brown,
+      List("Ringo", "Marty")
+    )
+  }
+
+  def generateString(length: Int) = {
+    val alphabet = "abcdefghijklmnopqrstuvwxyz";
+    var strBuild = new mutable.StringBuilder();
+    var i = 0;
+    while i < length do {
+      val index = random.between(1, alphabet.length);
+      strBuild.append(alphabet.charAt(index));
+      i += 1;
+    }
+    strBuild.toString();
+  }
+
 }
