@@ -10,3 +10,9 @@ lazy val root = project
   )
 libraryDependencies += ("org.apache.spark" %% "spark-sql" % "3.2.0" % "provided")
   .cross(CrossVersion.for3Use2_13)
+
+val AkkaVersion = "2.6.19"
+libraryDependencies ++= Seq(
+  "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
+  "com.typesafe.akka" %% "akka-actor-testkit-typed" % AkkaVersion % Test
+)
