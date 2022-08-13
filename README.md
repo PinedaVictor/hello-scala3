@@ -1,6 +1,6 @@
 # Hello Scala 3
 
-`GOAL - Lear Scala and Akka ✅`
+`GOAL - Learn Scala and Akka ✅`
 
 ## Tech
 
